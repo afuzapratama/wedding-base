@@ -12,11 +12,11 @@ export function initPetals() {
 
 function createPetals(container, count) {
   const colors = [
-    'rgba(92, 0, 60, 0.3)',       // burgundy
-    'rgba(139, 40, 102, 0.3)',    // light burgundy
-    'rgba(212, 165, 116, 0.3)',   // champagne gold
-    'rgba(232, 203, 164, 0.25)',  // light champagne
-    'rgba(255, 245, 247, 0.3)',   // blush cream
+    'rgba(176, 137, 104, 0.25)',  // warm gold
+    'rgba(212, 196, 168, 0.3)',   // soft champagne
+    'rgba(201, 169, 135, 0.3)',   // muted gold
+    'rgba(240, 230, 218, 0.3)',   // light ivory
+    'rgba(245, 237, 228, 0.35)',  // warm cream
   ]
   
   for (let i = 0; i < count; i++) {
@@ -47,9 +47,9 @@ function createPetals(container, count) {
 // Export a function to add petals dynamically if needed
 export function addPetalBurst(container, count = 20) {
   const colors = [
-    'rgba(212, 165, 116, 0.5)',
-    'rgba(92, 0, 60, 0.4)',
-    'rgba(232, 203, 164, 0.4)',
+    'rgba(176, 137, 104, 0.45)',
+    'rgba(212, 196, 168, 0.4)',
+    'rgba(240, 230, 218, 0.4)',
   ]
   
   for (let i = 0; i < count; i++) {

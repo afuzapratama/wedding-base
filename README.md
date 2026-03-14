@@ -48,10 +48,10 @@ Letakkan file musik (MP3) di folder `public/` dengan nama `music.mp3`.
 Edit CSS variables di `src/css/style.css`:
 ```css
 :root {
-  --color-primary: #5C003C;     /* Burgundy utama */
-  --color-gold: #D4A574;        /* Champagne gold */
-  --color-cream: #FFF5F7;       /* Background blush */
-  --color-dark: #2D0A1F;        /* Warna gelap */
+  --color-primary: #B08968;     /* Warm Gold */
+  --color-gold: #B08968;        /* Gold Foil */
+  --color-cream: #FDF8F3;       /* Soft Ivory */
+  --color-dark: #5B4A3F;        /* Warm Espresso */
 }
 ```
 

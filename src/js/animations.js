@@ -75,7 +75,7 @@ export function initAnimations() {
 function initHeroAnimations() {
   // Floating frame corners
   gsap.to('.frame-corner', {
-    borderColor: 'rgba(212, 165, 116, 0.8)',
+    borderColor: 'rgba(176, 137, 104, 0.8)',
     duration: 2,
     repeat: -1,
     yoyo: true,
@@ -174,7 +174,7 @@ function initGalleryAnimations() {
       gsap.to(item, {
         scale: 1.05,
         zIndex: 10,
-        boxShadow: '0 20px 40px rgba(45, 10, 31, 0.2)',
+        boxShadow: '0 20px 40px rgba(91, 74, 63, 0.2)',
         duration: 0.4,
         ease: 'power3.out'
       })
