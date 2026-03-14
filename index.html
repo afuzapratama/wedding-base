@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation - Afuza & Mutiara</title>
+  <meta name="description" content="Kami mengundang Anda untuk merayakan pernikahan kami - Afuza & Mutiara" />
+  
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body>
+
+  <!-- ==================== COVER / OPENING ==================== -->
+  <section id="cover" class="cover">
+    <div class="cover-overlay"></div>
+    <div class="floating-petals" id="cover-petals"></div>
+    
+    <!-- Slide 1: Invitation Card -->
+    <div class="cover-slide cover-slide-invitation">
+      <div class="cover-content">
+        <div class="cover-ornament top-ornament">
+          <svg viewBox="0 0 200 60" class="ornament-svg">
+            <path d="M100,55 Q60,30 20,40 Q40,10 100,5 Q160,10 180,40 Q140,30 100,55Z" fill="none" stroke="currentColor" stroke-width="0.8"/>
+            <path d="M100,50 Q70,30 35,38 Q50,15 100,10 Q150,15 165,38 Q130,30 100,50Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          </svg>
+        </div>
+        
+        <p class="cover-subtitle">The Wedding of</p>
+        <h1 class="cover-names">
+          <span class="name-groom">Afuza</span>
+          <span class="name-ampersand">&</span>
+          <span class="name-bride">Mutiara</span>
+        </h1>
+        <p class="cover-date">Sabtu, 04 April 2026</p>
+        
+        <div class="cover-guest">
+          <p class="guest-label">Kepada Yth.</p>
+          <p class="guest-name" id="guestName">Tamu Undangan</p>
+        </div>
+        
+        <button class="btn-open-invitation" id="openInvitation">
+          <span class="btn-icon">
+            <i data-lucide="mail-open" class="icon"></i>
+          </span>
+          <span class="btn-text">Buka Undangan</span>
+        </button>
+
+        <!-- Scroll hint -->
+        <div class="cover-scroll-hint">
+          <span>Scroll untuk lokasi</span>
+          <i data-lucide="chevron-down" class="icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Location & Map -->
+    <div class="cover-slide cover-slide-location">
+      <div class="cover-location-content">
+        <div class="cover-location-header">
+          <i data-lucide="map-pin" class="icon"></i>
+          <h2>Lokasi Acara</h2>
+        </div>
+
+        <div class="cover-location-cards">
+          <!-- Akad -->
+          <div class="cover-loc-card">
+            <div class="cover-loc-icon">
+              <i data-lucide="gem" class="icon"></i>
+            </div>
+            <h3>Akad Nikah</h3>
+            <p class="cover-loc-time">09:00 - 10:00 WIB</p>
+            <p class="cover-loc-address">Jl. Andan Sari Durung III</p>
+            <p class="cover-loc-address-detail">Lingkungan 7, Kelurahan Terjun</p>
+          </div>
+
+          <!-- Resepsi -->
+          <div class="cover-loc-card">
+            <div class="cover-loc-icon">
+              <i data-lucide="party-popper" class="icon"></i>
+            </div>
+            <h3>Resepsi</h3>
+            <p class="cover-loc-time">10:00 WIB - Selesai</p>
+            <p class="cover-loc-address">Jl. Andan Sari Durung III</p>
+            <p class="cover-loc-address-detail">Lingkungan 7, Kelurahan Terjun</p>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div class="cover-map-wrapper">
+          <iframe 
+            src="https://maps.google.com/maps?q=3.7112041,98.6234446&z=17&output=embed"
+            width="100%" 
+            height="250" 
+            class="cover-map-iframe"
+            title="Lokasi Acara di Google Maps"
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <a href="https://maps.app.goo.gl/9taB7MoicgHVEvKB6" target="_blank" rel="noopener" class="btn-open-maps">
+          <i data-lucide="navigation" class="icon"></i>
+          <span>Buka di Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="mainContent" class="main-content hidden">
+    
+    <!-- Music Toggle -->
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
+      <i data-lucide="volume-2" class="icon music-on"></i>
+      <i data-lucide="volume-x" class="icon music-off"></i>
+    </button>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="hero section">
+      <div class="hero-bg-pattern"></div>
+      <div class="floating-petals" id="hero-petals"></div>
+      
+      <div class="hero-content">
+        <div class="hero-frame">
+          <div class="frame-corner top-left"></div>
+          <div class="frame-corner top-right"></div>
+          <div class="frame-corner bottom-left"></div>
+          <div class="frame-corner bottom-right"></div>
+          
+          <p class="hero-bismillah" data-animate="fade-up">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+          <p class="hero-subtitle" data-animate="fade-up" data-delay="0.2">Assalamu'alaikum Wr. Wb.</p>
+          <p class="hero-text" data-animate="fade-up" data-delay="0.3">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami:</p>
+          
+          <div class="hero-names" data-animate="scale-in" data-delay="0.5">
+            <h2 class="groom-name">Afuza Pratama</h2>
+            <div class="names-separator">
+              <div class="separator-line"></div>
+              <span class="separator-heart">♥</span>
+              <div class="separator-line"></div>
+            </div>
+            <h2 class="bride-name">Mutiara Erwina</h2>
+          </div>
+          
+          <div class="hero-date-badge" data-animate="fade-up" data-delay="0.7">
+            <span class="date-day">04</span>
+            <div class="date-month-year">
+              <span class="date-month">April</span>
+              <span class="date-year">2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator" data-animate="fade-up" data-delay="1">
+        <span>Scroll Down</span>
+        <div class="scroll-arrow">
+          <i data-lucide="chevrons-down" class="icon"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COUPLE SECTION ==================== -->
+    <section id="couple" class="couple section">
+      <div class="section-bg-ornament"></div>
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ Mempelai ♥</span>
+          <h2 class="section-title">Calon Pengantin</h2>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="couple-cards">
+          <!-- Groom -->
+          <div class="couple-card groom-card" data-animate="fade-right">
+            <div class="card-photo-area">
+              <div class="card-photo-glow"></div>
+              <div class="card-photo-frame-outer">
+                <div class="card-photo-frame-inner">
+                  <img src="https://weddingku.b-cdn.net/fotoku/fuza-11.jpeg" alt="Foto Afuza Pratama" />
+                </div>
+              </div>
+              <div class="card-photo-corner tl"></div>
+              <div class="card-photo-corner tr"></div>
+              <div class="card-photo-corner bl"></div>
+              <div class="card-photo-corner br"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-name">Afuza Pratama, S.Kom</h3>
+              <div class="card-name-line"></div>
+              <p class="card-parents">Putra dari:</p>
+              <p class="card-father">Alm. Bapak Iwan</p>
+              <p class="card-mother">& Ibu Nurzannah</p>
+              <div class="card-social">
+                <a href="https://instagram.com/afuzapratama" target="_blank" rel="noopener" class="social-link" title="Instagram Afuza"><i data-lucide="instagram" class="icon"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Heart Divider -->
+          <div class="couple-divider" data-animate="scale-in">
+            <div class="heart-badge">
+              <svg viewBox="0 0 60 60" class="heart-svg">
+                <path d="M30,50 C15,35 5,25 5,17 C5,10 10,5 17,5 C22,5 27,8 30,13 C33,8 38,5 43,5 C50,5 55,10 55,17 C55,25 45,35 30,50Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Bride -->
+          <div class="couple-card bride-card" data-animate="fade-left">
+            <div class="card-photo-area">
+              <div class="card-photo-glow"></div>
+              <div class="card-photo-frame-outer">
+                <div class="card-photo-frame-inner">
+                  <img src="https://weddingku.b-cdn.net/fotoku/mutiara-11.jpeg" alt="Foto Mutiara Erwina" />
+                </div>
+              </div>
+              <div class="card-photo-corner tl"></div>
+              <div class="card-photo-corner tr"></div>
+              <div class="card-photo-corner bl"></div>
+              <div class="card-photo-corner br"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-name">Mutiara Erwina</h3>
+              <div class="card-name-line"></div>
+              <p class="card-parents">Putri dari:</p>
+              <p class="card-father">Bapak Eriwin</p>
+              <p class="card-mother">& Ibu Darliana/Lina</p>
+              <div class="card-social">
+                <a href="https://instagram.com/clra_erwn" target="_blank" rel="noopener" class="social-link" title="Instagram Mutiara"><i data-lucide="instagram" class="icon"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COUNTDOWN SECTION ==================== -->
+    <section id="countdown" class="countdown section">
+      <div class="parallax-bg" data-speed="0.3"></div>
+      <div class="countdown-overlay"></div>
+      <div class="container">
+        <div class="section-header light" data-animate="fade-up">
+          <span class="section-subtitle">♥ Menghitung Hari ♥</span>
+          <h2 class="section-title">Menuju Hari Bahagia</h2>
+        </div>
+        
+        <div class="countdown-timer" data-animate="fade-up" data-delay="0.3">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">00</div>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">00</div>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">00</div>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">00</div>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EVENT DETAILS ==================== -->
+    <section id="events" class="events section">
+      <div class="section-bg-ornament flipped"></div>
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ Acara ♥</span>
+          <h2 class="section-title">Detail Acara</h2>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="events-grid">
+          <!-- Akad Nikah -->
+          <div class="event-card" data-animate="fade-right">
+            <div class="event-icon">
+              <div class="icon-ring">
+                <div class="icon-ring-outer"></div>
+                <div class="icon-ring-inner"></div>
+                <div class="icon-ring-corner tl"></div>
+                <div class="icon-ring-corner tr"></div>
+                <div class="icon-ring-corner bl"></div>
+                <div class="icon-ring-corner br"></div>
+                <i data-lucide="gem" class="icon"></i>
+              </div>
+            </div>
+            <h3 class="event-title">Akad Nikah</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <i data-lucide="calendar" class="icon"></i>
+                <span>Sabtu, 04 April 2026</span>
+              </div>
+              <div class="event-detail-item">
+                <i data-lucide="clock" class="icon"></i>
+                <span>09:00 - 10:00 WIB</span>
+              </div>
+              <div class="event-detail-item">
+                <i data-lucide="map-pin" class="icon"></i>
+                <span>Jl. Andan Sari Durung III<br>Lingkungan 7, Kel. Terjun</span>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/9taB7MoicgHVEvKB6" target="_blank" rel="noopener" class="btn-map">
+              <i data-lucide="map" class="icon"></i>
+              <span>Lihat Lokasi</span>
+            </a>
+          </div>
+          
+          <!-- Resepsi -->
+          <div class="event-card" data-animate="fade-left">
+            <div class="event-icon">
+              <div class="icon-ring">
+                <div class="icon-ring-outer"></div>
+                <div class="icon-ring-inner"></div>
+                <div class="icon-ring-corner tl"></div>
+                <div class="icon-ring-corner tr"></div>
+                <div class="icon-ring-corner bl"></div>
+                <div class="icon-ring-corner br"></div>
+                <i data-lucide="party-popper" class="icon"></i>
+              </div>
+            </div>
+            <h3 class="event-title">Resepsi</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <i data-lucide="calendar" class="icon"></i>
+                <span>Sabtu, 04 April 2026</span>
+              </div>
+              <div class="event-detail-item">
+                <i data-lucide="clock" class="icon"></i>
+                <span>10:00 WIB - Selesai</span>
+              </div>
+              <div class="event-detail-item">
+                <i data-lucide="map-pin" class="icon"></i>
+                <span>Jl. Andan Sari Durung III<br>Lingkungan 7, Kel. Terjun</span>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/9taB7MoicgHVEvKB6" target="_blank" rel="noopener" class="btn-map">
+              <i data-lucide="map" class="icon"></i>
+              <span>Lihat Lokasi</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LOVE STORY TIMELINE ==================== -->
+    <section id="story" class="story section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ Kisah Kami ♥</span>
+          <h2 class="section-title">Love Story</h2>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          
+          <div class="timeline-item" data-animate="fade-right">
+            <div class="timeline-dot">
+              <i data-lucide="eye" class="icon"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-photo">
+                <picture>
+                  <source srcset="https://weddingku.b-cdn.net/fotoku/love-story/pertamakali.webp" type="image/webp">
+                  <img src="https://weddingku.b-cdn.net/fotoku/love-story/pertamakali.jpg" alt="Pertama Kali Bertemu" />
+                </picture>
+              </div>
+              <div class="timeline-info">
+                <span class="timeline-date">April 2021</span>
+                <h3 class="timeline-title">Pertama Kali Bertemu</h3>
+                <p class="timeline-desc">Pertemuan tak terduga di Waroeng Steak & Shake menjadi awal dari segalanya. Hanya sapaan singkat dan sedikit pujian, namun momen sederhana itu ternyata meninggalkan kesan yang tak mudah dilupakan di hati kami berdua.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item right" data-animate="fade-left">
+            <div class="timeline-dot">
+              <i data-lucide="heart" class="icon"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-photo">
+                <picture>
+                  <source srcset="https://weddingku.b-cdn.net/fotoku/love-story/berpacaran.webp" type="image/webp">
+                  <img src="https://weddingku.b-cdn.net/fotoku/love-story/berpacaran.jpg" alt="Resmi Berpacaran" />
+                </picture>
+              </div>
+              <div class="timeline-info">
+                <span class="timeline-date">Desember 2021</span>
+                <h3 class="timeline-title">Resmi Berpacaran</h3>
+                <p class="timeline-desc">Beberapa bulan setelah pertemuan pertama, kami mulai bertukar kontak dan semakin sering berbincang. Kecocokan yang kami rasakan membuat kami yakin untuk melangkah lebih jauh — resmi menjalin hubungan sebagai sepasang kekasih.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item" data-animate="fade-right">
+            <div class="timeline-dot">
+              <i data-lucide="diamond" class="icon"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-photo">
+                <picture>
+                  <source srcset="https://weddingku.b-cdn.net/fotoku/love-story/tunangan.webp" type="image/webp">
+                  <img src="https://weddingku.b-cdn.net/fotoku/love-story/tunangan.jpeg" alt="Tunangan" />
+                </picture>
+              </div>
+              <div class="timeline-info">
+                <span class="timeline-date">Tahun 2024</span>
+                <h3 class="timeline-title">Tunangan</h3>
+                <p class="timeline-desc">Setelah beberapa tahun bersama melewati suka dan duka, kami memutuskan untuk mengambil langkah serius. Afuza melamar Mutiara, dan dengan penuh kebahagiaan, kami resmi bertunangan — sebuah janji untuk masa depan yang lebih indah.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item right" data-animate="fade-left">
+            <div class="timeline-dot">
+              <i data-lucide="heart-handshake" class="icon"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-photo">
+                <picture>
+                  <source srcset="https://weddingku.b-cdn.net/fotoku/G3.webp" type="image/webp">
+                  <img src="https://weddingku.b-cdn.net/fotoku/G3.jpeg" alt="Hari Pernikahan" />
+                </picture>
+              </div>
+              <div class="timeline-info">
+                <span class="timeline-date">04 April 2026</span>
+                <h3 class="timeline-title">Hari Pernikahan</h3>
+                <p class="timeline-desc">Setelah dua tahun menanti sejak pertunangan, dengan perasaan yang semakin matang dan tujuan hidup yang semakin jelas, InsyaAllah kami siap menyatukan langkah dalam ikatan suci pernikahan. Doakan kami!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <section id="gallery" class="gallery section">
+      <div class="section-bg-ornament"></div>
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ Galeri ♥</span>
+          <h2 class="section-title">Moment Berharga</h2>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="gallery-grid">
+          <div class="gallery-item" data-animate="zoom-in" data-delay="0">
+            <picture>
+              <source srcset="https://weddingku.b-cdn.net/fotoku/G1.webp" type="image/webp">
+              <img src="https://weddingku.b-cdn.net/fotoku/G1.jpeg" alt="Afuza & Mutiara 1" />
+            </picture>
+          </div>
+          <div class="gallery-item tall" data-animate="zoom-in" data-delay="0.1">
+            <picture>
+              <source srcset="https://weddingku.b-cdn.net/fotoku/G2.webp" type="image/webp">
+              <img src="https://weddingku.b-cdn.net/fotoku/G2.jpeg" alt="Afuza & Mutiara 2" />
+            </picture>
+          </div>
+          <div class="gallery-item" data-animate="zoom-in" data-delay="0.2">
+            <picture>
+              <source srcset="https://weddingku.b-cdn.net/fotoku/G3.webp" type="image/webp">
+              <img src="https://weddingku.b-cdn.net/fotoku/G3.jpeg" alt="Afuza & Mutiara 3" />
+            </picture>
+          </div>
+          <div class="gallery-item wide" data-animate="zoom-in" data-delay="0.3">
+            <picture>
+              <source srcset="https://weddingku.b-cdn.net/fotoku/G4.webp" type="image/webp">
+              <img src="https://weddingku.b-cdn.net/fotoku/G4.jpeg" alt="Afuza & Mutiara 4" />
+            </picture>
+          </div>
+          <div class="gallery-item" data-animate="zoom-in" data-delay="0.4">
+            <picture>
+              <source srcset="https://weddingku.b-cdn.net/fotoku/G5.webp" type="image/webp">
+              <img src="https://weddingku.b-cdn.net/fotoku/G5.jpeg" alt="Afuza & Mutiara 5" />
+            </picture>
+          </div>
+          <div class="gallery-item" data-animate="zoom-in" data-delay="0.5">
+            <picture>
+              <source srcset="https://weddingku.b-cdn.net/fotoku/G6.webp" type="image/webp">
+              <img src="https://weddingku.b-cdn.net/fotoku/G6.png" alt="Afuza & Mutiara 6" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== QURAN VERSE ==================== -->
+    <section id="verse" class="verse section">
+      <div class="parallax-bg verse-bg" data-speed="0.3"></div>
+      <div class="verse-overlay"></div>
+      <div class="container">
+        <div class="verse-content" data-animate="fade-up">
+          <div class="verse-ornament">
+            <svg viewBox="0 0 120 40" class="ornament-flourish">
+              <path d="M60,20 C45,20 35,8 10,12" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              <path d="M60,20 C75,20 85,8 110,12" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              <path d="M60,20 C45,20 35,32 10,28" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              <path d="M60,20 C75,20 85,32 110,28" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="60" cy="20" r="4" fill="currentColor" opacity="0.8"/>
+              <circle cx="10" cy="12" r="2" fill="currentColor" opacity="0.5"/>
+              <circle cx="110" cy="12" r="2" fill="currentColor" opacity="0.5"/>
+              <circle cx="10" cy="28" r="2" fill="currentColor" opacity="0.5"/>
+              <circle cx="110" cy="28" r="2" fill="currentColor" opacity="0.5"/>
+              <path d="M35,14 Q48,6 60,14 Q72,6 85,14" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+              <path d="M35,26 Q48,34 60,26 Q72,34 85,26" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+            </svg>
+          </div>
+          <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+          <p class="verse-translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+          <p class="verse-source">— QS. Ar-Rum: 21 —</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== RSVP SECTION ==================== -->
+    <section id="rsvp" class="rsvp section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ RSVP ♥</span>
+          <h2 class="section-title">Konfirmasi Kehadiran</h2>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="rsvp-form-wrapper" data-animate="fade-up" data-delay="0.2">
+          <form class="rsvp-form" id="rsvpForm">
+            <div class="form-group">
+              <label for="rsvpName">Nama Lengkap</label>
+              <input type="text" id="rsvpName" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="rsvpAttendance">Konfirmasi Kehadiran</label>
+              <select id="rsvpAttendance" required>
+                <option value="">Pilih</option>
+                <option value="hadir">Ya, Saya Akan Hadir</option>
+                <option value="tidak">Maaf, Saya Tidak Bisa Hadir</option>
+                <option value="ragu">Masih Ragu</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rsvpGuests">Jumlah Tamu</label>
+              <select id="rsvpGuests">
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="3">3 Orang</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i data-lucide="send" class="icon"></i>
+              <span>Kirim Konfirmasi</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WISHES SECTION ==================== -->
+    <section id="wishes" class="wishes section">
+      <div class="section-bg-ornament flipped"></div>
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ Ucapan ♥</span>
+          <h2 class="section-title">Ucapan & Doa</h2>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="wishes-wrapper" data-animate="fade-up" data-delay="0.2">
+          <form class="wishes-form" id="wishesForm">
+            <div class="form-group">
+              <label for="wishName">Nama</label>
+              <input type="text" id="wishName" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="wishMessage">Ucapan & Doa</label>
+              <textarea id="wishMessage" placeholder="Tulis ucapan dan doa untuk kedua mempelai..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i data-lucide="heart" class="icon"></i>
+              <span>Kirim Ucapan</span>
+            </button>
+          </form>
+          
+          <div class="wishes-list" id="wishesList">
+            <!-- Loaded from Supabase -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GIFT / AMPLOP DIGITAL ==================== -->
+    <section id="gift" class="gift section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-subtitle">♥ Hadiah ♥</span>
+          <h2 class="section-title">Amplop Digital</h2>
+          <p class="section-desc">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, kami menyediakan amplop digital berikut:</p>
+          <div class="section-divider">
+            <svg viewBox="0 0 120 20" class="divider-svg">
+              <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="gift-cards" data-animate="fade-up" data-delay="0.2">
+          <!-- BRI -->
+          <div class="gift-card">
+            <div class="gift-bank-logo">BRI</div>
+            <p class="gift-account-name">Darliana</p>
+            <div class="gift-account-number">
+              <span id="accountBRI">530101023506539</span>
+              <button class="btn-copy" data-copy="530101023506539" title="Salin">
+                <i data-lucide="copy" class="icon"></i>
+              </button>
+            </div>
+          </div>
+          <!-- Dana -->
+          <div class="gift-card">
+            <div class="gift-bank-logo">Dana</div>
+            <p class="gift-account-name">Mutiara Erwina</p>
+            <div class="gift-account-number">
+              <span id="accountDana">0882015923618</span>
+              <button class="btn-copy" data-copy="0882015923618" title="Salin">
+                <i data-lucide="copy" class="icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- QRIS -->
+        <div class="gift-qris" data-animate="fade-up" data-delay="0.4">
+          <div class="gift-card qris-card">
+            <div class="gift-bank-logo">QRIS</div>
+            <p class="gift-account-name">Zekivo Game Store</p>
+            <div class="qris-image">
+              <img src="https://weddingku.b-cdn.net/fotoku/qris.png" alt="QRIS Payment" />
+            </div>
+            <p class="qris-hint">Scan QR code di atas untuk transfer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer" class="footer">
+      <div class="floating-petals" id="footer-petals"></div>
+      <div class="footer-content">
+        <div class="footer-ornament" data-animate="fade-up">
+          <svg viewBox="0 0 200 60" class="ornament-svg">
+            <path d="M100,55 Q60,30 20,40 Q40,10 100,5 Q160,10 180,40 Q140,30 100,55Z" fill="none" stroke="currentColor" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <div class="footer-thanks" data-animate="fade-up" data-delay="0.2">
+          <h2 class="thanks-title">Terima Kasih</h2>
+          <p class="thanks-text">Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+        </div>
+        <div class="footer-names" data-animate="scale-in" data-delay="0.4">
+          <h3>Afuza & Mutiara</h3>
+        </div>
+        <p class="footer-quote" data-animate="fade-up" data-delay="0.6">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri."</p>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">Made with ♥ | Wedding of Afuza & Mutiara 2026</p>
+      </div>
+    </footer>
+
+    <!-- Navigation Dots -->
+    <nav class="nav-dots" id="navDots">
+      <a href="#hero" class="nav-dot active" data-section="hero" title="Home"></a>
+      <a href="#couple" class="nav-dot" data-section="couple" title="Mempelai"></a>
+      <a href="#countdown" class="nav-dot" data-section="countdown" title="Countdown"></a>
+      <a href="#events" class="nav-dot" data-section="events" title="Acara"></a>
+      <a href="#story" class="nav-dot" data-section="story" title="Kisah"></a>
+      <a href="#gallery" class="nav-dot" data-section="gallery" title="Galeri"></a>
+      <a href="#rsvp" class="nav-dot" data-section="rsvp" title="RSVP"></a>
+      <a href="#wishes" class="nav-dot" data-section="wishes" title="Ucapan"></a>
+      <a href="#gift" class="nav-dot" data-section="gift" title="Hadiah"></a>
+    </nav>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" title="Tutup"><i data-lucide="x" class="icon"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightboxImg">
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i data-lucide="check-circle" class="icon"></i>
+    <span class="toast-message"></span>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
