@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FDF8F3">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Generator Link Tamu - Afuza & Mutiara</title>
@@ -40,8 +40,8 @@
       top: 0;
       z-index: 50;
       background: rgba(253, 248, 243, 0.92);
-      backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
       padding: 16px 20px;
       border-bottom: 1px solid rgba(176, 137, 104, 0.12);
       text-align: center;
@@ -390,6 +390,10 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(176, 137, 104, 0.2); border-radius: 4px; }
 
+    /* ===== UTILITIES ===== */
+    .bulk-action { margin-top: 14px; }
+    .hidden { display: none; }
+
     /* ===== DESKTOP ENHANCE ===== */
     @media (min-width: 640px) {
       .container { padding: 24px; }
@@ -432,7 +436,7 @@
       <div class="card-title"><span class="emoji">📋</span> Tambah Banyak Sekaligus</div>
       <label>Satu nama per baris</label>
       <textarea id="bulkNames" placeholder="Anugra Bakti Nasution&#10;Budi Santoso&#10;Keluarga Pak Ahmad&#10;Ibu Sari dan Keluarga"></textarea>
-      <div style="margin-top: 14px;">
+      <div class="bulk-action">
         <button class="btn btn-gold" onclick="addBulk()">✨ Generate Semua</button>
       </div>
     </div>
@@ -442,15 +446,15 @@
       <div class="card-title"><span class="emoji">📎</span> Daftar Link Tamu</div>
       <div id="countBadge"></div>
       <div id="resultList"></div>
-      <div id="actionButtons" style="display:none;">
+      <div id="actionButtons" class="hidden">
         <div class="action-grid">
           <button class="btn btn-outline" onclick="copyAll()">📋 Copy Semua</button>
           <button class="btn btn-danger" onclick="clearAll()">🗑 Hapus Semua</button>
           <div class="full-span">
-            <button class="btn btn-wa" onclick="copyAllChat()">💬 WA Mempelai</button>
+            <button class="btn btn-wa" onclick="copyAllChat()">💬 Copy Format WA Mempelai</button>
           </div>
           <div class="full-span">
-            <button class="btn btn-wa-formal" onclick="copyAllChatOrtu()">💬 WA Orang Tua</button>
+            <button class="btn btn-wa-formal" onclick="copyAllChatOrtu()">💬 Copy Format WA Orang Tua</button>
           </div>
         </div>
       </div>
@@ -529,13 +533,13 @@
 
       if (guests.length === 0) {
         badge.innerHTML = ''
-        actions.style.display = 'none'
+        actions.classList.add('hidden')
         list.innerHTML = '<div class="result-empty"><div class="empty-icon">📭</div><div>Belum ada tamu.<br>Tambahkan nama di atas.</div></div>'
         return
       }
 
       badge.innerHTML = '<span class="count-badge">👥 ' + guests.length + ' tamu</span>'
-      actions.style.display = 'block'
+      actions.classList.remove('hidden')
 
       list.innerHTML = guests.map((name, i) => 
         '<div class="result-item">' +
@@ -577,7 +581,7 @@
 
     function copyAllChatOrtu() {
       const text = guests.map(name => {
-        return '\u0628\u0650\u0633\u0652\u0645\u0650 \u0627\u0644\u0644\u0651\u064E\u0647\u0650 \u0627\u0644\u0631\u0651\u064E\u062D\u0652\u0645\u064E\u0646\u0650 \u0627\u0644\u0631\u0651\u064E\u062D\u0650\u064A\u0645\u0650\n\nAssalamu\'alaikum Wr. Wb.\n\nKepada Yth.\nBapak/Ibu/Saudara/i\n*' + name + '*\n\nDengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra-putri kami:\n\n*Afuza Pratama, S.Kom*\n_Putra dari Alm. Bpk Iwan & Ibu Nurzannah_\n\n        &\n\n*Mutiara Erwina*\n_Putri dari Bpk Eriwin & Ibu Darliana/Lina_\n\nyang InsyaAllah akan dilaksanakan pada:\n\n\uD83D\uDD4C *Akad Nikah*\n\uD83D\uDCC5 Sabtu, 04 April 2026\n\uD83D\uDD58 09:00 - 10:00 WIB\n\n\uD83C\uDF89 *Resepsi*\n\uD83D\uDCC5 Sabtu, 04 April 2026\n\uD83D\uDD59 10:00 WIB - Selesai\n\n\uD83D\uDCCD Jl. Andan Sari Durung III, Lingkungan 7, Kel. Terjun\n\nMerupakan suatu kehormatan dan kebahagiaan bagi keluarga kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.\n\nSilakan buka undangan digital di:\n\uD83D\uDD17 ' + makeLink(name) + '\n\nAtas kehadiran dan doa restunya, kami mengucapkan terima kasih.\n\nWassalamu\'alaikum Wr. Wb.\n\n_Keluarga Besar Kedua Mempelai_ \uD83D\uDE4F'
+        return '\u0628\u0650\u0633\u0652\u0645\u0650 \u0627\u0644\u0644\u0651\u064E\u0647\u0650 \u0627\u0644\u0631\u0651\u064E\u062D\u0652\u0645\u064E\u0646\u0650 \u0627\u0644\u0631\u0651\u064E\u062D\u0650\u064A\u0645\u0650\n\nAssalamu\'alaikum Wr. Wb.\n\nKepada Yth.\nBapak/Ibu/Saudara/i\n*' + name + '*\n\nDengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra-putri kami:\n\n*Afuza Pratama, S.Kom*\n_Putra dari Alm. Bpk Iwan & Ibu Nurzannah_\n\n        &\n\n*Mutiara Erwina*\n_Putri dari Bpk Erwin & Ibu Darliana/Lina_\n\nyang InsyaAllah akan dilaksanakan pada:\n\n\uD83D\uDD4C *Akad Nikah*\n\uD83D\uDCC5 Sabtu, 04 April 2026\n\uD83D\uDD58 09:00 - 10:00 WIB\n\n\uD83C\uDF89 *Resepsi*\n\uD83D\uDCC5 Sabtu, 04 April 2026\n\uD83D\uDD59 10:00 WIB - Selesai\n\n\uD83D\uDCCD Jl. Andan Sari Durung III, Lingkungan 7, Kel. Terjun\n\nMerupakan suatu kehormatan dan kebahagiaan bagi keluarga kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.\n\nSilakan buka undangan digital di:\n\uD83D\uDD17 ' + makeLink(name) + '\n\nAtas kehadiran dan doa restunya, kami mengucapkan terima kasih.\n\nWassalamu\'alaikum Wr. Wb.\n\n_Keluarga Besar Kedua Mempelai_ \uD83D\uDE4F'
       }).join('\n\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\n')
       navigator.clipboard.writeText(text)
       showToast('\uD83D\uDCAC ' + guests.length + ' undangan WA orang tua di-copy!')
